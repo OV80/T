@@ -11,16 +11,17 @@ def add1(a, b, c):
     p = (a + b + c) / 2
     s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
     return s
-m1 = []
+
 for i in range(len(m) - 2):
     a = m[i]
     b = m[i + 1]
     c = m[i + 2]
+ m1 = []
     m1.append(add1(a, b, c))
     if add(a, b, c) == True:
         print("a = ", a, "b = ", b, "c = ", c, "S = ", add1(a, b, c))
     else:
-        print("треугольник не существует")
+        print("треуг невозможен")
 for i in range(len(m1)):
     if type(m1[i]) == complex:
         m1[i] = 0
