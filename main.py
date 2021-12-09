@@ -1,14 +1,28 @@
-def isT(a, b):
-    if (a+b>m) and (a+m>b) and (b+m>a):
+from random import randint
+m = []
+for i in range(1000):
+    m.append(randint(1, 10000000))
+def add(a, b, c):
+    if ((a + c) > b) and ((c + b) > a) and ((a + b) > c):
         return True
-    s=[3, 4, 23, 5, 20, 35]
-    m=max(s)
-    s.sort (reverse= True)
-
-    print(s)
-    for i in range (1, len(s)-1):
-        for j in range (i+1, len(s)):
-            if isT(s[i], s[j]):
-                p=(m+s[i]+s[j])/2
-                S=(p*(p-m)*(p-s[i])*(p-s[j]))**0.5
-                print(S)
+    else:
+        return False
+def add1(a, b, c):
+    p = (a + b + c) / 2
+    s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
+    return s
+m1 = []
+for i in range(len(m) - 2):
+    a = m[i]
+    b = m[i + 1]
+    c = m[i + 2]
+    m1.append(add1(a, b, c))
+    if add(a, b, c) == True:
+        print("a = ", a, "b = ", b, "c = ", c, "S = ", add1(a, b, c))
+    else:
+        print("треугольник не существует")
+for i in range(len(m1)):
+    if type(m1[i]) == complex:
+        m1[i] = 0
+print(m1)
+print("Max S = ", max(m1))
