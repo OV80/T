@@ -18,9 +18,8 @@ for i in range(len(m) - 2):
  m1 = []
     m1.append(add1(a, b, c))
     if add(a, b, c) == True:
-        print("a = ", a, "b = ", b, "c = ", c, "S = ", add1(a, b, c))
+        print("a = ", a, "b = ", b, "c = ", c)
     else:
         print("треуг невозможен")
 
-print(m1)
 print("Max S = ", max(m1))
